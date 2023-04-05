@@ -1,0 +1,36 @@
+
+{
+    "data": {
+        "products": [
+            {
+                "name": "Item1",
+                "category": "soap",
+                "price": 20,
+                "isAvailable": true,
+                "discount_percentage": 5
+            },
+            {
+                "name": "Item2",
+                "category": "snacks",
+                "price": 30 ,
+                "isAvailable": false,
+                "discount_percentage": 3
+            },
+            {
+                "name": "Item3",
+                "category": "drinks",
+                "price": 30,
+                "isAvailable": true,
+                "discount_percentage": 4
+            }
+            ,
+            {
+                "name": "Item4",
+                "category": "regular",
+                "price": 40,
+                "isAvailable": false,
+                "discount_percentage": 8
+            }
+        ]
+    }
+}

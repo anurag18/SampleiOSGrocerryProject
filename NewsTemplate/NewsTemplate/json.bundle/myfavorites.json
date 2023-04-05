@@ -1,0 +1,21 @@
+{
+    "data": {
+        "myfavorites": [
+            {
+                "name": "Item1",
+                "category": "soap",
+                "price": 20,
+                "isAvailable": true,
+                "dicount_percentage": 5
+            },
+            {
+                "name": "Item4",
+                "category": "regular",
+                "price": 40,
+                "isAvailable": false,
+                "dicount_percentage": 8
+            }
+        ]
+    }
+    
+}

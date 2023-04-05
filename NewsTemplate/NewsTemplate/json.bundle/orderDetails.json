@@ -1,0 +1,29 @@
+{
+    "data": {
+        "order":
+        {
+            "id": "OD001",
+            "date": "22/01/2022",
+            "order_amount": 2000.0,
+            "saving": 211.0,
+            "item_type": [
+                "grocerry"
+            ],
+            "category_type": "single"
+        },
+        "items": [
+            {
+                "name": "Item1",
+                "category": "soap",
+            },
+            {
+                "name": "Item2",
+                "category": "snacks",
+            },
+            {
+                "name": "Item3",
+                "category": "drinks",
+            }
+        ]
+    }
+}

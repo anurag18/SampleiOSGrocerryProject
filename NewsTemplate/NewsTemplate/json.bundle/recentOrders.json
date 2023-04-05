@@ -1,0 +1,36 @@
+{
+    "data": {
+        "orders": [
+            {
+                "id": "OD001",
+                "date": "22/01/2022",
+                "order_amount": 20000.0,
+                "saving": 211.0,
+                "item_type": [
+                    "grocerry"
+                ],
+                "category_type": "single"
+            },
+            {
+                "id": "OD002",
+                "date": "22/05/2022",
+                "order_amount": 4000.0,
+                "saving": 111.0,
+                "item_type": [
+                    "snack", "grocerry"
+                ],
+                "category_type": "multiple"
+            },
+            {
+                "id": "OD003",
+                "date": "22/05/2022",
+                "order_amount": 5000.0,
+                "saving": 511.0,
+                "item_type": [
+                    "snack"
+                ],
+                "category_type": "single"
+            }
+        ]
+    }
+}

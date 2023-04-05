@@ -1,0 +1,34 @@
+{
+    "data": {
+        "user": {
+            "name": "Anurag",
+            "surname": "Sharma",
+            "type": "GEN001",
+            "contact": {
+                "mobile": "+9818590815",
+                "email": "anutheriddle@gmail.com"
+            }
+        },
+        "services": [{
+            "name": "Grocerry",
+            "service_flag": "GSR",
+            "enable": true
+        },
+            {
+                "name": "Transport",
+                "service_flag": "TNP",
+                "enable": true
+            },
+            {
+                "name": "Milk",
+                "service_flag": "MLK",
+                "enable": true
+            },
+            {
+                "name": "Travel",
+                "service_flag": "TVL",
+                "enable": true
+            }
+        ]
+    }
+}
