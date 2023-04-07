@@ -45,7 +45,9 @@ extension GrocerryApiService: GrocerryProductServiceProtocol {
                 completion(nil, error)
                 return
             }
-            completion(productList, nil)
+            DispatchQueue.main.async {
+                completion(productList, nil)
+            }
         }
     }
     

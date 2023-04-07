@@ -13,6 +13,6 @@ struct ProductListResponse: Codable {
 
 struct Product: Codable {
     let name, category: String
-    let price, discount_percentage: Float?
+    let price, discount_percentage: Double?
     let isAvailable: Bool?
 }

@@ -38,14 +38,14 @@ struct ReviewOrderScreen: View {
               
             ScrollView(showsIndicators: false) {
                 
-                SellableItem(itemName: "Lux", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                SellableItem(itemName: "Honey", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                SellableItem(itemName: "Maggie", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                SellableItem(itemName: "Biscuite", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                SellableItem(itemName: "Pasta", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                SellableItem(itemName: "Pizza", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                SellableItem(itemName: "lolly pop", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                SellableItem(itemName: "Achar", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
+//                SellableItem(itemName: "Lux", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
+//                SellableItem(itemName: "Honey", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
+//                SellableItem(itemName: "Maggie", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
+//                SellableItem(itemName: "Biscuite", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
+//                SellableItem(itemName: "Pasta", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
+//                SellableItem(itemName: "Pizza", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
+//                SellableItem(itemName: "lolly pop", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
+//                SellableItem(itemName: "Achar", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
                 UButton(title: "Confirm") {
                     self.shouldConfirmOrder.toggle()
                 }
