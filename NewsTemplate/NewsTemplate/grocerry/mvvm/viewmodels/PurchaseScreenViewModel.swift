@@ -26,8 +26,12 @@ class PurchaseScreenViewModel: ObservableObject {
         }
     }
     
-    func handleAddToCartAction(items: [SellableItem]) {
-        
+    func handleAddToCartAction(item: ProductViewModel) {
+        CartManager.shared.addItemToTheCart(product: item)
+    }
+    
+    func removeItemFromCartAction(item: ProductViewModel) -> Bool {
+       return CartManager.shared.removeItemFromCart(product: item)
     }
     
     func handleCheckoutAction() {

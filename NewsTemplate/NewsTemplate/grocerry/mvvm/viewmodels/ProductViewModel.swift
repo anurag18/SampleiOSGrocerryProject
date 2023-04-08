@@ -7,9 +7,14 @@
 
 import Foundation
 
-class ProductViewModel: Identifiable {
+class ProductViewModel: Identifiable,Equatable {
+    static func == (lhs: ProductViewModel, rhs: ProductViewModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id =  UUID()
     let product: Product
+    
     init(product: Product) {
         self.product = product
     }
@@ -22,12 +27,16 @@ class ProductViewModel: Identifiable {
         return self.product.category
     }
     
-    var actualPrice: String {
-        return self.product.price?.stringValue ?? ""
+    var actualPrice: Double {
+        return self.product.price ?? 0.0
     }
     
-    var discount: String {
-        return "\(self.product.discount_percentage?.stringValue ?? "") % OFF"
+    var discount: Double {
+        return self.product.discount_percentage ?? 0.0
+    }
+    
+    var isAvailable: Bool {
+        return self.product.isAvailable ?? false
     }
 }
 

@@ -8,23 +8,15 @@
 import SwiftUI
 
 struct SellableItem: View {
-    
-    let itemName: String
-    let itemCategory: String
-    let isAvailable: Bool
-    let discountedPrice: String
-    let addedInCart: Bool
-    
-    let cardbackground = ColorKit.sharedObject.background.secondaryBg
+    private let sellableItemViewModel: SellableItemViewModel
+    private let productViewModel: ProductViewModel
+    private let cardbackground = ColorKit.sharedObject.background.secondaryBg
+    @State private var addedInCart: Bool
     
     init(productViewModel: ProductViewModel) {
-        self.itemName = productViewModel.productName
-        self.itemCategory = productViewModel.productCategory
-        self.isAvailable = false
-        self.discountedPrice = productViewModel.discount
-      
+        self.sellableItemViewModel = SellableItemViewModel(product: productViewModel)
+        self.productViewModel = productViewModel
         self.addedInCart = false
-        
     }
     
     var body: some View {
@@ -32,19 +24,19 @@ struct SellableItem: View {
             VStack{
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(itemName)
+                        Text(self.sellableItemViewModel.itemName)
                             .font(.headline)
                             .foregroundStyle(.primary)
-                        Text(itemCategory)
+                        Text(self.sellableItemViewModel.itemCategory)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
                     Spacer()
                     VStack(alignment: .trailing) {
-                        Text(isAvailable ? "Available" : "Unavailable")
+                        Text(self.sellableItemViewModel.isAvailable ? "Available" : "Unavailable")
                             .font(.subheadline)
-                        Text("\(discountedPrice)")
-                            .font(.subheadline)
+                        Text("\(self.sellableItemViewModel.price) at \(self.sellableItemViewModel.discountedPrice) %Off")
+                            .font(.caption)
                         
                     } .foregroundStyle(.secondary)
                 }
@@ -52,6 +44,14 @@ struct SellableItem: View {
                  Spacer()
                     Button(!addedInCart ? "Add to cart" : "Remove from cart") {
                         print("Item added in cart")
+                        if !addedInCart {
+                            self.addedInCart.toggle()
+                            self.sellableItemViewModel.handleAddToCartAction(item: self.productViewModel)
+                        } else {
+                            if self.sellableItemViewModel.removeItemFromCartAction(item: self.productViewModel) {
+                                self.addedInCart.toggle()
+                            }
+                        }
                     }
                 }
             }.padding()

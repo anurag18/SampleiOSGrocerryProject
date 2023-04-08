@@ -43,6 +43,9 @@
 		DB9C36D029E03D73005303A3 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C36CF29E03D73005303A3 /* ProductViewModel.swift */; };
 		DB9C36D229E043ED005303A3 /* Double+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C36D129E043ED005303A3 /* Double+extension.swift */; };
 		DBA21B2029E134F400F40725 /* ManageOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA21B1F29E134F300F40725 /* ManageOrderViewModel.swift */; };
+		DBA21B2229E167E100F40725 /* ReviewOrderScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA21B2129E167E100F40725 /* ReviewOrderScreenViewModel.swift */; };
+		DBA21B2529E1954C00F40725 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA21B2429E1954C00F40725 /* CartManager.swift */; };
+		DBA21B2729E1A3C800F40725 /* SellableItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA21B2629E1A3C800F40725 /* SellableItemViewModel.swift */; };
 		DBA7FFC829DFD97D00177340 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA7FFC229DFD97D00177340 /* ContainerView.swift */; };
 		DBA7FFC929DFD97D00177340 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA7FFC329DFD97D00177340 /* ServiceView.swift */; };
 		DBA7FFCA29DFD97D00177340 /* UButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA7FFC429DFD97D00177340 /* UButton.swift */; };
@@ -114,6 +117,9 @@
 		DB9C36CF29E03D73005303A3 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		DB9C36D129E043ED005303A3 /* Double+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extension.swift"; sourceTree = "<group>"; };
 		DBA21B1F29E134F300F40725 /* ManageOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOrderViewModel.swift; sourceTree = "<group>"; };
+		DBA21B2129E167E100F40725 /* ReviewOrderScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewOrderScreenViewModel.swift; sourceTree = "<group>"; };
+		DBA21B2429E1954C00F40725 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		DBA21B2629E1A3C800F40725 /* SellableItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellableItemViewModel.swift; sourceTree = "<group>"; };
 		DBA7FFC229DFD97D00177340 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		DBA7FFC329DFD97D00177340 /* ServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
 		DBA7FFC429DFD97D00177340 /* UButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UButton.swift; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 		DB92702A29D7112100166CE7 /* grocerry */ = {
 			isa = PBXGroup;
 			children = (
+				DBA21B2329E1953300F40725 /* singleton */,
 				DBA7FFB529DFD8F400177340 /* resusuable_components */,
 				DBA7FFB129DFD76700177340 /* mvvm */,
 				DB92703529D71A6700166CE7 /* utils */,
@@ -279,6 +286,14 @@
 			path = stubbed;
 			sourceTree = "<group>";
 		};
+		DBA21B2329E1953300F40725 /* singleton */ = {
+			isa = PBXGroup;
+			children = (
+				DBA21B2429E1954C00F40725 /* CartManager.swift */,
+			);
+			path = singleton;
+			sourceTree = "<group>";
+		};
 		DBA7FFB129DFD76700177340 /* mvvm */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +332,8 @@
 				DBA7FFD029DFDC6500177340 /* PurchaseScreenViewModel.swift */,
 				DB9C36CF29E03D73005303A3 /* ProductViewModel.swift */,
 				DBA21B1F29E134F300F40725 /* ManageOrderViewModel.swift */,
+				DBA21B2129E167E100F40725 /* ReviewOrderScreenViewModel.swift */,
+				DBA21B2629E1A3C800F40725 /* SellableItemViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -531,6 +548,7 @@
 				DB9435AC29BEB5C000CF7B03 /* ConfirmationScreen.swift in Sources */,
 				DB97EC8A29D4731E00D2F616 /* MethodType.swift in Sources */,
 				DB91045E29BE080900B65292 /* PurchaseScreen.swift in Sources */,
+				DBA21B2729E1A3C800F40725 /* SellableItemViewModel.swift in Sources */,
 				DB92BBEC29C2EE990058F4C0 /* OrderDetailsResponse.swift in Sources */,
 				DBA7FFCF29DFDA4900177340 /* MainScreenViewModel.swift in Sources */,
 				DBA7FFC829DFD97D00177340 /* ContainerView.swift in Sources */,
@@ -543,6 +561,7 @@
 				DBE48B3929B463BB003A3A92 /* ContentView.swift in Sources */,
 				DB9C36D029E03D73005303A3 /* ProductViewModel.swift in Sources */,
 				DB8F497329D20C41002C4776 /* StubbedData.swift in Sources */,
+				DBA21B2529E1954C00F40725 /* CartManager.swift in Sources */,
 				DBA7FFCB29DFD97D00177340 /* CircleImageView.swift in Sources */,
 				DB92703829D71B8C00166CE7 /* MockURLSessionProtocols.swift in Sources */,
 				DB92BBEA29C2E7CE0058F4C0 /* RecentOrdersResponse.swift in Sources */,
@@ -552,6 +571,7 @@
 				DBA7FFC929DFD97D00177340 /* ServiceView.swift in Sources */,
 				DBA21B2029E134F400F40725 /* ManageOrderViewModel.swift in Sources */,
 				DB92BBEE29C2F0840058F4C0 /* MyFavoritesResponse.swift in Sources */,
+				DBA21B2229E167E100F40725 /* ReviewOrderScreenViewModel.swift in Sources */,
 				DB91046229BE0CEF00B65292 /* AddressConfirmationScreen.swift in Sources */,
 				DB92703329D7185C00166CE7 /* URLSessionFactory.swift in Sources */,
 				DB9435A829BEAD0D00CF7B03 /* UpdateAddressScreen.swift in Sources */,

@@ -11,6 +11,7 @@ struct ReviewOrderScreen: View {
     @State var shouldConfirmOrder: Bool = false
     let background = ColorKit.sharedObject.background.mainBg
     let secondaryBackground = ColorKit.sharedObject.background.secondaryBg
+    let reviewOrderViewModel: ReviewOrderScreenViewModel = ReviewOrderScreenViewModel()
     
     var body: some View {
         VStack {
@@ -18,37 +19,43 @@ struct ReviewOrderScreen: View {
                 
                 VStack(alignment: .leading, spacing: 18) {
                     HStack {
-                        Text("Ordered Item").font(.headline)
+                        Text("Total Ordered Item").font(.headline)
                         Spacer()
-                        Text("12").font(.caption).foregroundStyle(.secondary)
+                        Text(reviewOrderViewModel.numberOfItems).font(.caption).foregroundStyle(.secondary)
                     }
                     HStack {
-                        Text("Total Amount").font(.headline)
+                        Text("Payable Amount").font(.headline)
                         Spacer()
-                        Text("1204 RS").font(.caption).foregroundStyle(.secondary)
+                        Text("\(reviewOrderViewModel.totalAmount) RS").font(.caption).foregroundStyle(.secondary)
                     }
                     HStack {
-                        Text("Saving Amount").font(.headline)
+                        Text("Saving on purchase").font(.headline)
                         Spacer()
-                        Text("120 RS").font(.caption).foregroundStyle(.secondary)
+                        Text("\(reviewOrderViewModel.totalSavingOnPurchase) RS").font(.caption).foregroundStyle(.secondary)
                         
                     }
-                    Text("Please verify below purchase...")
-                        .font(.subheadline).foregroundStyle(.secondary)
+                }
                 }.padding()
                 
+                Text("You have purchased below items kindly verify the details...")
+                .font(.headline).padding()
+                
                 ScrollView(showsIndicators: false) {
-                    
-                    //                SellableItem(itemName: "Lux", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                    //                SellableItem(itemName: "Honey", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                    //                SellableItem(itemName: "Maggie", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                    //                SellableItem(itemName: "Biscuite", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                    //                SellableItem(itemName: "Pasta", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                    //                SellableItem(itemName: "Pizza", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                    //                SellableItem(itemName: "lolly pop", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
-                    //                SellableItem(itemName: "Achar", itemCategory: "Soap", isAvailable: false, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: false)
+                    ForEach(self.reviewOrderViewModel.cartItems) { item in
+                        VStack {
+                            HStack {
+                                Text(item.productName)
+                                Spacer()
+                                Text(item.productCategory)
+                            }
+                            HStack {
+                                Spacer()
+                                Text(item.actualPrice.stringValue)
+                            }
+                        }.font(.caption).padding().background(Color.white)
+                    }
                    
-                }
+                }.padding()
                 
                 .navigationTitle("Confirm your purchase")
                 .navigationDestination(isPresented: $shouldConfirmOrder) {
@@ -61,10 +68,10 @@ struct ReviewOrderScreen: View {
             }.padding(20)
         }
     }
-}
 
 struct ReviewOrder_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewOrderScreen()
+        Text("edit to unlock")
+        // ReviewOrderScreen()
     }
 }
