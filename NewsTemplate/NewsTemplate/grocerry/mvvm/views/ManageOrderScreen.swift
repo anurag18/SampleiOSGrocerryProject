@@ -8,16 +8,38 @@
 import SwiftUI
 
 struct ManageOrderScreen: View {
+    let manageOrderViewModel = ManageOrderViewModel()
+    
     var body: some View {
         
+        ContainerView {
             ScrollView(showsIndicators: false) {
-//                SellableItem(itemName: "Lux", itemCategory: "Soap", isAvailable: true, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: true)
-//                SellableItem(itemName: "Lux", itemCategory: "Soap", isAvailable: true, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: true)
-//
-//                SellableItem(itemName: "Lux", itemCategory: "Soap", isAvailable: true, discountedPrice: "30 RS", discountDescription: "5% Off on actual", addedInCart: true)
-
-            }.padding(8)
-    }
+                ForEach(manageOrderViewModel.orders){ order in
+                    VStack {
+                        HStack {
+                            Text("#\(order.orderId)")
+                                .font(.headline)
+                                .foregroundStyle(.primary)
+                                .foregroundColor(Color.blue)
+                            Spacer()
+                            Text(order.orderAmount)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        HStack {
+                            Text(order.orderDate)
+                                .font(.subheadline)
+                                .foregroundStyle(.primary)
+                            Spacer()
+                            Text(order.savingOnOrder)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }.padding().background(Color.white)
+                }
+            }
+        }.navigationTitle("Recent Orders")    }
+    
 }
 
 struct ManageOrder_Previews: PreviewProvider {

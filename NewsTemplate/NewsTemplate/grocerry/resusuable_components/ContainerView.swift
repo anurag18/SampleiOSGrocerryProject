@@ -21,7 +21,6 @@ struct ContainerView<Content: View>: View {
                         .padding()
                         .background(secondaryBackground)
                         .cornerRadius(20)
-                Spacer()
             }.padding()
             .background(background)
     }

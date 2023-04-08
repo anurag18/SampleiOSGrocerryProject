@@ -42,6 +42,7 @@
 		DB98C6E429D01C7100B30EB2 /* ApiServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB98C6E329D01C7100B30EB2 /* ApiServiceType.swift */; };
 		DB9C36D029E03D73005303A3 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C36CF29E03D73005303A3 /* ProductViewModel.swift */; };
 		DB9C36D229E043ED005303A3 /* Double+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C36D129E043ED005303A3 /* Double+extension.swift */; };
+		DBA21B2029E134F400F40725 /* ManageOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA21B1F29E134F300F40725 /* ManageOrderViewModel.swift */; };
 		DBA7FFC829DFD97D00177340 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA7FFC229DFD97D00177340 /* ContainerView.swift */; };
 		DBA7FFC929DFD97D00177340 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA7FFC329DFD97D00177340 /* ServiceView.swift */; };
 		DBA7FFCA29DFD97D00177340 /* UButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA7FFC429DFD97D00177340 /* UButton.swift */; };
@@ -112,6 +113,7 @@
 		DB98C6E329D01C7100B30EB2 /* ApiServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceType.swift; sourceTree = "<group>"; };
 		DB9C36CF29E03D73005303A3 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		DB9C36D129E043ED005303A3 /* Double+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extension.swift"; sourceTree = "<group>"; };
+		DBA21B1F29E134F300F40725 /* ManageOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOrderViewModel.swift; sourceTree = "<group>"; };
 		DBA7FFC229DFD97D00177340 /* ContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		DBA7FFC329DFD97D00177340 /* ServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
 		DBA7FFC429DFD97D00177340 /* UButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UButton.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				DBA7FFCE29DFDA4900177340 /* MainScreenViewModel.swift */,
 				DBA7FFD029DFDC6500177340 /* PurchaseScreenViewModel.swift */,
 				DB9C36CF29E03D73005303A3 /* ProductViewModel.swift */,
+				DBA21B1F29E134F300F40725 /* ManageOrderViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				DB97EC8D29D473B700D2F616 /* GrocerryApiService.swift in Sources */,
 				DB91046029BE09FB00B65292 /* ManageOrderScreen.swift in Sources */,
 				DBA7FFC929DFD97D00177340 /* ServiceView.swift in Sources */,
+				DBA21B2029E134F400F40725 /* ManageOrderViewModel.swift in Sources */,
 				DB92BBEE29C2F0840058F4C0 /* MyFavoritesResponse.swift in Sources */,
 				DB91046229BE0CEF00B65292 /* AddressConfirmationScreen.swift in Sources */,
 				DB92703329D7185C00166CE7 /* URLSessionFactory.swift in Sources */,

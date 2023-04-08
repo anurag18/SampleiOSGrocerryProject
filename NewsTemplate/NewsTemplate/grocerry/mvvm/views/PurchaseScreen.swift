@@ -21,7 +21,7 @@ struct PurchaseScreen: View {
                     }
                 }
             }
-                Spacer()
+            Spacer()
                 UButton(title: "Checkout Cart") {
                     self.shouldCheckoutOrder.toggle()
                 }.padding(20)

@@ -64,8 +64,11 @@ struct TabularView: View {
     }
     var homeView: some View {
         NavigationView {
-            ContainerView {
+            VStack {
+                ContainerView {
                     grocerryServiceView()
+                }
+                Spacer()
             }
             .navigationBarTitle("Anurag Sharma")
         }

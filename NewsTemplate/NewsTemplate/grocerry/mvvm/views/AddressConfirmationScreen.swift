@@ -27,36 +27,35 @@ struct AddressConfirmationView: View {
     
 
     var body: some View {
-        ContainerView {
-                VStack(alignment: .leading, spacing: 30) {
-                    Text("Delivery address")
-                        .font(.headline)
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Delivery address")
+                .font(.headline)
+            ContainerView {
                     
                     Text("Flat no. 202, B wing Jd green Paradise , uttareshwar Road, 411047, lohegaon, Pune")
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(nil)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
-                    
-                    
-                    Text("Mobile Number")
-                        .font(.headline)
-
-                    Text("+91 9818590812")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                    Spacer()
-                    VStack(alignment: .center) {
-                        UButton(title: "Update Address") {
-                            self.shouldUpdateAddress.toggle()
-                        }
-                        
-                        UButton(title: "Review Order") {
-                            self.shouldReviewOrder.toggle()
-                        }
-                    }
+            }
+            Text("Mobile Number")
+                .font(.headline)
+            ContainerView {
+                Text("+91 9818590812")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer()
+            VStack(alignment: .center) {
+                UButton(title: "Update Address") {
+                    self.shouldUpdateAddress.toggle()
                 }
-        }
+                
+                UButton(title: "Review Order") {
+                    self.shouldReviewOrder.toggle()
+                }
+            }
+        }.padding()
 
         .navigationDestination(isPresented: $shouldUpdateAddress) {
             UpdateAddressScreen(flatNumber: "202", addressLine1: "JD Green Paradise B wing", landMark: "Jagadguru School", pincode: "411047")
