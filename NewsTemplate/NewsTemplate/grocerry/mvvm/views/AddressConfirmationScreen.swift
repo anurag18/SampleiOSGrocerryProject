@@ -20,7 +20,7 @@ struct AddressConfirmationScreen: View {
 
 struct AddressConfirmationView: View {
     @State var shouldUpdateAddress =  false
-    @State var shouldReviewOrder =  false
+    @State var shouldPlaceOrder =  false
 
     let background = ColorKit.sharedObject.background.mainBg
     let secondaryBackground = ColorKit.sharedObject.background.secondaryBg
@@ -51,8 +51,8 @@ struct AddressConfirmationView: View {
                     self.shouldUpdateAddress.toggle()
                 }
                 
-                UButton(title: "Review Order") {
-                    self.shouldReviewOrder.toggle()
+                UButton(title: "Place Order") {
+                    self.shouldPlaceOrder.toggle()
                 }
             }
         }.padding()
@@ -60,8 +60,8 @@ struct AddressConfirmationView: View {
         .navigationDestination(isPresented: $shouldUpdateAddress) {
             UpdateAddressScreen(flatNumber: "202", addressLine1: "JD Green Paradise B wing", landMark: "Jagadguru School", pincode: "411047")
         }
-        .navigationDestination(isPresented: $shouldReviewOrder) {
-            ReviewOrderScreen()
+        .navigationDestination(isPresented: $shouldPlaceOrder) {
+            ConfirmationScreen()
         }
         .navigationTitle("Confirm Address")
     }

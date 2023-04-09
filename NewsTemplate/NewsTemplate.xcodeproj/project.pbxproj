@@ -316,11 +316,11 @@
 			children = (
 				DB8EAAC529B6E0EE000FDDA3 /* MainScreen.swift */,
 				DB91045D29BE080900B65292 /* PurchaseScreen.swift */,
-				DB91045F29BE09FB00B65292 /* ManageOrderScreen.swift */,
-				DB9435A729BEAD0D00CF7B03 /* UpdateAddressScreen.swift */,
+				DB9435A929BEB3D200CF7B03 /* ReviewOrderScreen.swift */,
 				DB91046129BE0CEF00B65292 /* AddressConfirmationScreen.swift */,
 				DB9435AB29BEB5C000CF7B03 /* ConfirmationScreen.swift */,
-				DB9435A929BEB3D200CF7B03 /* ReviewOrderScreen.swift */,
+				DB91045F29BE09FB00B65292 /* ManageOrderScreen.swift */,
+				DB9435A729BEAD0D00CF7B03 /* UpdateAddressScreen.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";

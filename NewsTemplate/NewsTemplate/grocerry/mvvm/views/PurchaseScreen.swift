@@ -28,7 +28,7 @@ struct PurchaseScreen: View {
             }
         .navigationTitle("Purchase Item")
         .navigationDestination(isPresented: $shouldCheckoutOrder) {
-            AddressConfirmationScreen()
+            ReviewOrderScreen()
         }
     }
 }

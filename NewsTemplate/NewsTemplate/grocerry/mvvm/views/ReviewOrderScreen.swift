@@ -11,67 +11,104 @@ struct ReviewOrderScreen: View {
     @State var shouldConfirmOrder: Bool = false
     let background = ColorKit.sharedObject.background.mainBg
     let secondaryBackground = ColorKit.sharedObject.background.secondaryBg
-    let reviewOrderViewModel: ReviewOrderScreenViewModel = ReviewOrderScreenViewModel()
+    @State var reviewOrderViewModel: ReviewOrderScreenViewModel = ReviewOrderScreenViewModel()
     
-    var body: some View {
-        VStack {
-            ContainerView {
-                
-                VStack(alignment: .leading, spacing: 18) {
-                    HStack {
-                        Text("Total Ordered Item").font(.headline)
-                        Spacer()
-                        Text(reviewOrderViewModel.numberOfItems).font(.caption).foregroundStyle(.secondary)
-                    }
-                    HStack {
-                        Text("Payable Amount").font(.headline)
-                        Spacer()
-                        Text("\(reviewOrderViewModel.totalAmount) RS").font(.caption).foregroundStyle(.secondary)
-                    }
-                    HStack {
-                        Text("Saving on purchase").font(.headline)
-                        Spacer()
-                        Text("\(reviewOrderViewModel.totalSavingOnPurchase) RS").font(.caption).foregroundStyle(.secondary)
-                        
-                    }
+    var summaryView: some View {
+        return ContainerView {
+            
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    Text("Total ordered item").font(.subheadline)
+                    Spacer()
+                    Text(self.reviewOrderViewModel.numberOfItems).font(.caption).foregroundStyle(.secondary)
                 }
-                }.padding()
-                
-                Text("You have purchased below items kindly verify the details...")
-                .font(.headline).padding()
-                
-                ScrollView(showsIndicators: false) {
-                    ForEach(self.reviewOrderViewModel.cartItems) { item in
-                        VStack {
-                            HStack {
+                HStack {
+                    Text("Payable amount").font(.subheadline)
+                    Spacer()
+                    Text("\(self.reviewOrderViewModel.totalAmount) RS").font(.caption).foregroundStyle(.secondary)
+                }
+                HStack {
+                    Text("Saving on purchase").font(.subheadline)
+                    Spacer()
+                    Text("\(self.reviewOrderViewModel.totalSavingOnPurchase) RS").font(.caption).foregroundStyle(.secondary)
+                    
+                }
+            }
+        }
+    }
+    
+    var deliveryView: some View {
+        ContainerView {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Delivery Address").foregroundStyle(.primary)
+                    Text("JD Green Paradise B wing 202 uttareshwar road")
+                }.font(.caption).foregroundStyle(.secondary)
+                Spacer()
+                Button("Update") {
+                    
+                }.font(.caption).foregroundStyle(.primary).foregroundColor(Color.blue)
+            }
+        }
+    }
+    
+    var itemsOnCartView: some View {
+        return ContainerView {
+            
+            ScrollView(showsIndicators: false) {
+                HStack {
+                    Text("Review items")
+                        .font(.subheadline)
+                        .foregroundStyle(.primary)
+                Spacer()
+                }
+                ForEach(self.reviewOrderViewModel.cartItems) { item in
+                    VStack {
+                        HStack {
+                            VStack {
                                 Text(item.productName)
-                                Spacer()
                                 Text(item.productCategory)
+                                    .foregroundStyle(.secondary)
                             }
                             HStack {
                                 Spacer()
                                 Text(item.actualPrice.stringValue)
+                                    .foregroundStyle(.secondary)
                             }
-                        }.font(.caption).padding().background(Color.white)
-                    }
-                   
-                }.padding()
-                
-                .navigationTitle("Confirm your purchase")
-                .navigationDestination(isPresented: $shouldConfirmOrder) {
-                    ConfirmationScreen()
+                            Spacer()
+                            Button {
+                                print("Edit button was tapped")
+                            } label: {
+                                Image(systemName: "delete.left.fill").foregroundColor(Color.blue)
+                            }
+                        }
+                    }.font(.caption).padding(8)
                 }
+                
             }
-            Spacer()
-            UButton(title: "Confirm") {
-                self.shouldConfirmOrder.toggle()
-            }.padding(20)
         }
     }
+    
+    var body: some View {
+        VStack {
+            summaryView
+            deliveryView
+            itemsOnCartView
+            Spacer()
+            UButton(title: "Next") {
+                self.shouldConfirmOrder.toggle()
+            }
+        }.padding()
+        .navigationTitle("Confirm your purchase")
+            .navigationDestination(isPresented: $shouldConfirmOrder) {
+                AddressConfirmationScreen()
+            }
+    }
+}
 
 struct ReviewOrder_Previews: PreviewProvider {
     static var previews: some View {
-        Text("edit to unlock")
-        // ReviewOrderScreen()
+        // Text("edit to unlock")
+        ReviewOrderScreen()
     }
 }

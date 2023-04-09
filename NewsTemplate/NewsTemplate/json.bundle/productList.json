@@ -3,21 +3,21 @@
     "data": {
         "products": [
             {
-                "name": "Item1",
+                "name": "Lux",
                 "category": "soap",
                 "price": 20,
                 "isAvailable": true,
                 "discount_percentage": 5
             },
             {
-                "name": "Item2",
+                "name": "Kurkure",
                 "category": "snacks",
                 "price": 30 ,
                 "isAvailable": false,
                 "discount_percentage": 3
             },
             {
-                "name": "Item3",
+                "name": "Pepsi",
                 "category": "drinks",
                 "price": 30,
                 "isAvailable": true,
@@ -25,7 +25,7 @@
             }
             ,
             {
-                "name": "Item4",
+                "name": "Sugar",
                 "category": "regular",
                 "price": 40,
                 "isAvailable": false,

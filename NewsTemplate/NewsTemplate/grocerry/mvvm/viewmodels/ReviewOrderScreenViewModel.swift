@@ -8,24 +8,19 @@
 import Foundation
 
 class ReviewOrderScreenViewModel: ObservableObject {
-    let products: [ProductViewModel]
-    init(){
-        self.products = CartManager.shared.allCartItems
-    }
-    
     var numberOfItems: String {
-        return products.count.description
+        return CartManager.shared.allCartItems.count.description
     }
     
     var totalAmount: String {
-        let totalAmount = self.products.reduce(0) { currentValue, product in
+        let totalAmount = CartManager.shared.allCartItems.reduce(0) { currentValue, product in
             return product.actualPrice + currentValue
         }
         return totalAmount.stringValue
     }
     
     var totalSavingOnPurchase: String {
-        let totalSaving = self.products.reduce(0) { currentValue, product in
+        let totalSaving = CartManager.shared.allCartItems.reduce(0) { currentValue, product in
             return self.calculateSaving(price: product.actualPrice, discount: product.discount) + currentValue
         }
         return totalSaving.stringValue
