@@ -22,7 +22,7 @@ struct PurchaseScreen: View {
                 }
             }
             Spacer()
-                UButton(title: "Checkout Cart") {
+            UButton(title: "Checkout Cart", buttonType: .primary) {
                     self.shouldCheckoutOrder.toggle()
                 }.padding(20)
             }

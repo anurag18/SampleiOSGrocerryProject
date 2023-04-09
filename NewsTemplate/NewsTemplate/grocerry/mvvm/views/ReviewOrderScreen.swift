@@ -17,6 +17,7 @@ struct ReviewOrderScreen: View {
         return ContainerView {
             
             VStack(alignment: .leading, spacing: 8) {
+                Text("Order Summary").foregroundStyle(.primary).font(.headline)
                 HStack {
                     Text("Total ordered item").font(.subheadline)
                     Spacer()
@@ -42,49 +43,50 @@ struct ReviewOrderScreen: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("Delivery Address").foregroundStyle(.primary)
-                    Text("JD Green Paradise B wing 202 uttareshwar road")
-                }.font(.caption).foregroundStyle(.secondary)
+                    Text("JD Green Paradise B wing 202 uttareshwar road").foregroundStyle(.secondary)
+                }.font(.headline)
                 Spacer()
                 Button("Update") {
                     
-                }.font(.caption).foregroundStyle(.primary).foregroundColor(Color.blue)
+                }.font(.headline).foregroundStyle(.primary).foregroundColor(Color.blue)
             }
         }
     }
     
     var itemsOnCartView: some View {
         return ContainerView {
-            
-            ScrollView(showsIndicators: false) {
-                HStack {
-                    Text("Review items")
-                        .font(.subheadline)
-                        .foregroundStyle(.primary)
-                Spacer()
-                }
-                ForEach(self.reviewOrderViewModel.cartItems) { item in
-                    VStack {
-                        HStack {
-                            VStack {
-                                Text(item.productName)
-                                Text(item.productCategory)
-                                    .foregroundStyle(.secondary)
-                            }
+            VStack(alignment: .leading) {
+            Text("Review items")
+                .font(.headline)
+                .foregroundStyle(.primary)
+                ScrollView(showsIndicators: false) {
+                    HStack {
+                        
+                        Spacer()
+                    }
+                    ForEach(self.reviewOrderViewModel.cartItems) { item in
+                        VStack {
                             HStack {
+                                VStack {
+                                    Text(item.productName)
+                                    Text(item.productCategory)
+                                        .foregroundStyle(.secondary)
+                                }
+                                HStack {
+                                    Spacer()
+                                    Text(item.actualPrice.stringValue)
+                                        .foregroundStyle(.secondary)
+                                }
                                 Spacer()
-                                Text(item.actualPrice.stringValue)
-                                    .foregroundStyle(.secondary)
+                                Button {
+                                    print("Edit button was tapped")
+                                } label: {
+                                    Image(systemName: "delete.left.fill").foregroundColor(Color.blue)
+                                }
                             }
-                            Spacer()
-                            Button {
-                                print("Edit button was tapped")
-                            } label: {
-                                Image(systemName: "delete.left.fill").foregroundColor(Color.blue)
-                            }
-                        }
-                    }.font(.caption).padding(8)
+                        }.font(.headline).padding(8)
+                    }
                 }
-                
             }
         }
     }
@@ -95,7 +97,7 @@ struct ReviewOrderScreen: View {
             deliveryView
             itemsOnCartView
             Spacer()
-            UButton(title: "Next") {
+            UButton(title: "Next", buttonType: .primary) {
                 self.shouldConfirmOrder.toggle()
             }
         }.padding()

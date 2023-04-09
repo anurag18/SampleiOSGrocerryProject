@@ -47,11 +47,11 @@ struct AddressConfirmationView: View {
             }
             Spacer()
             VStack(alignment: .center) {
-                UButton(title: "Update Address") {
+                UButton(title: "Update Address", buttonType: .secondary) {
                     self.shouldUpdateAddress.toggle()
                 }
                 
-                UButton(title: "Place Order") {
+                UButton(title: "Place Order", buttonType: .primary) {
                     self.shouldPlaceOrder.toggle()
                 }
             }
