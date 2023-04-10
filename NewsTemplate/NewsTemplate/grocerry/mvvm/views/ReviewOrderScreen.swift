@@ -44,11 +44,9 @@ struct ReviewOrderScreen: View {
                 VStack(alignment: .leading) {
                     Text("Delivery Address").foregroundStyle(.primary)
                     Text("JD Green Paradise B wing 202 uttareshwar road").foregroundStyle(.secondary)
-                }.font(.headline)
-                Spacer()
-                Button("Update") {
-                    
-                }.font(.headline).foregroundStyle(.primary).foregroundColor(Color.blue)
+                }
+                .font(.headline)
+            Spacer()
             }
         }
     }
@@ -59,7 +57,6 @@ struct ReviewOrderScreen: View {
             Text("Review items")
                 .font(.headline)
                 .foregroundStyle(.primary)
-                ScrollView(showsIndicators: false) {
                     HStack {
                         
                         Spacer()
@@ -88,14 +85,15 @@ struct ReviewOrderScreen: View {
                     }
                 }
             }
-        }
     }
     
     var body: some View {
         VStack {
-            summaryView
-            deliveryView
-            itemsOnCartView
+            ScrollView(showsIndicators: false) {
+                summaryView
+                deliveryView
+                itemsOnCartView
+            }
             Spacer()
             UButton(title: "Next", buttonType: .primary) {
                 self.shouldConfirmOrder.toggle()

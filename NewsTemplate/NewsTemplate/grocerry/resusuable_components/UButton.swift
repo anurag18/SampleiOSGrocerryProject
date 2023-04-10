@@ -14,7 +14,9 @@ enum ButtonType {
 struct UButton: View {
     let title: String
     let buttonType: ButtonType
-
+    var height: CGFloat? = 50.0
+    var borderColor: Color = Color.blue
+    var backgroundColor: Color = Color.accentColor
     var action:(()->())
     var isPrimaryButton: Bool {
         return self.buttonType == .primary
@@ -22,15 +24,15 @@ struct UButton: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(isPrimaryButton ? Color.accentColor : Color.clear)
+                .foregroundColor(isPrimaryButton ? backgroundColor : Color.clear)
             Button(title) {
                 self.action()
-            }
+            }.padding(2)
+
             .foregroundColor(isPrimaryButton ? Color.white : Color.blue)
         }
-        .border(Color.blue)
-        //.cornerRadius(8)
-        .frame(height: 50)
+        .border(borderColor)
+        .frame(height: height)
 
     }
 }

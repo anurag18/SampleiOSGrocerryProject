@@ -7,11 +7,30 @@
 
 import SwiftUI
 
+struct MyStepper<Label: View>: View {
+    @Binding var value: Int
+    var `in`: ClosedRange<Int> // todo
+    @ViewBuilder var label: Label
+    
+    var body: some View {
+        HStack {
+            label
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            Button("-") { value -= 1 }
+            Text(value.formatted())
+            Button("+") { value += 1 }
+        }
+        .buttonStyle(.plain)
+    }
+}
+
 struct SellableItem: View {
     private let sellableItemViewModel: SellableItemViewModel
     private let productViewModel: ProductViewModel
     private let cardbackground = ColorKit.sharedObject.background.secondaryBg
     @State private var addedInCart: Bool
+    @State private var numberOfItem: Int = 1
     
     init(productViewModel: ProductViewModel) {
         self.sellableItemViewModel = SellableItemViewModel(product: productViewModel)
@@ -21,29 +40,27 @@ struct SellableItem: View {
     
     var body: some View {
         VStack {
+            
             VStack{
                 HStack {
-                    VStack(alignment: .leading) {
-                        Text(self.sellableItemViewModel.itemName)
-                            .font(.headline)
-                            .foregroundStyle(.primary)
-                        Text(self.sellableItemViewModel.itemCategory)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
+                    Text(self.sellableItemViewModel.itemName)
+                        .font(.headline)
+                        .foregroundStyle(.primary)
                     Spacer()
-                    VStack(alignment: .trailing) {
-                        Text(self.sellableItemViewModel.isAvailable ? "Available" : "Unavailable")
-                            .font(.subheadline)
+                    MyStepper(value: $numberOfItem, in: 1...5) {
+                        Text("Quantity")
+                    }
+                }
+                
+                HStack {
+                    VStack(alignment: .leading) {
                         Text("\(self.sellableItemViewModel.price) at \(self.sellableItemViewModel.discountedPrice) %Off")
                             .font(.caption)
-                        
-                    } .foregroundStyle(.secondary)
-                }
-                HStack {
-                 Spacer()
-                    Button(!addedInCart ? "Add to cart" : "Remove from cart") {
-                        print("Item added in cart")
+                        Text(self.sellableItemViewModel.isAvailable ? "Available" : "Unavailable")
+                            .font(.subheadline)
+                    }.foregroundStyle(.secondary)
+                    Spacer()
+                    UButton(title: !addedInCart ? "+ cart" : "- cart", buttonType: .primary, height: 30, backgroundColor: !addedInCart ? Color.blue : Color.orange) {
                         if !addedInCart {
                             self.addedInCart.toggle()
                             self.sellableItemViewModel.handleAddToCartAction(item: self.productViewModel)
@@ -52,7 +69,7 @@ struct SellableItem: View {
                                 self.addedInCart.toggle()
                             }
                         }
-                    }
+                    }.frame(width: 100)
                 }
             }.padding()
         }.background(cardbackground)
