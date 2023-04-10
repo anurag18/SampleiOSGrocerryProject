@@ -11,12 +11,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             TabularView()
-        }.navigationBarTitleDisplayMode(.inline).onAppear {
-         
-            GrocerryApiService.shared.getOrderDetail { response, error in
-                print(response?.order)
-            }
-        }
+        }.navigationBarTitleDisplayMode(.inline)
     }
 }
 struct ContentView_Previews: PreviewProvider {

@@ -1,5 +1,5 @@
 //
-//  SellableItem.swift
+//  ProductItemView.swift
 //  NewsTemplate
 //
 //  Created by Anurag Sharma on 12/03/23.
@@ -25,15 +25,15 @@ struct MyStepper<Label: View>: View {
     }
 }
 
-struct SellableItem: View {
-    private let sellableItemViewModel: SellableItemViewModel
+struct ProductItemView: View {
+    private let productItemViewModel: ProductItemViewModel
     private let productViewModel: ProductViewModel
     private let cardbackground = ColorKit.sharedObject.background.secondaryBg
     @State private var addedInCart: Bool
     @State private var numberOfItem: Int = 1
     
     init(productViewModel: ProductViewModel) {
-        self.sellableItemViewModel = SellableItemViewModel(product: productViewModel)
+        self.productItemViewModel = ProductItemViewModel(product: productViewModel)
         self.productViewModel = productViewModel
         self.addedInCart = false
     }
@@ -43,7 +43,7 @@ struct SellableItem: View {
             
             VStack{
                 HStack {
-                    Text(self.sellableItemViewModel.itemName)
+                    Text(self.productItemViewModel.itemName)
                         .font(.headline)
                         .foregroundStyle(.primary)
                     Spacer()
@@ -54,18 +54,18 @@ struct SellableItem: View {
                 
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("\(self.sellableItemViewModel.price) at \(self.sellableItemViewModel.discountedPrice) %Off")
+                        Text("\(self.productItemViewModel.price) at \(self.productItemViewModel.discountedPrice) %Off")
                             .font(.caption)
-                        Text(self.sellableItemViewModel.isAvailable ? "Available" : "Unavailable")
+                        Text(self.productItemViewModel.isAvailable ? "Available" : "Unavailable")
                             .font(.subheadline)
                     }.foregroundStyle(.secondary)
                     Spacer()
                     UButton(title: !addedInCart ? "+ cart" : "- cart", buttonType: .primary, height: 30, backgroundColor: !addedInCart ? Color.blue : Color.orange) {
                         if !addedInCart {
                             self.addedInCart.toggle()
-                            self.sellableItemViewModel.handleAddToCartAction(item: self.productViewModel)
+                            self.productItemViewModel.handleAddToCartAction(item: self.productViewModel)
                         } else {
-                            if self.sellableItemViewModel.removeItemFromCartAction(item: self.productViewModel) {
+                            if self.productItemViewModel.removeItemFromCartAction(item: self.productViewModel) {
                                 self.addedInCart.toggle()
                             }
                         }

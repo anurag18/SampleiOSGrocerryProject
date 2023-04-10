@@ -12,12 +12,15 @@ struct PurchaseScreen: View {
     @ObservedObject var productList = PurchaseScreenViewModel()
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            
             ContainerView {
+                
                 ScrollView(showsIndicators: false) {
+                    Text("Select Product and quantity").font(.headline).foregroundStyle(.primary)
                     ForEach(productList.products ?? []) { product in
                         
-                        SellableItem(productViewModel: product)
+                        ProductItemView(productViewModel: product)
                     }
                 }
             }

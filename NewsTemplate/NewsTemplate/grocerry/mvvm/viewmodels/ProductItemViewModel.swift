@@ -1,5 +1,5 @@
 //
-//  SellableItemViewModel.swift
+//  ProductItemViewModel.swift
 //  NewsTemplate
 //
 //  Created by Anurag Sharma on 08/04/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SellableItemViewModel {
+class ProductItemViewModel {
     private let product: ProductViewModel
     init(product: ProductViewModel) {
         self.product = product

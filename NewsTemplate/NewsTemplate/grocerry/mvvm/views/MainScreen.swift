@@ -70,7 +70,7 @@ struct TabularView: View {
                 }
                 Spacer()
             }
-            .navigationBarTitle("Anurag Sharma")
+            .navigationBarTitle("SHOPPERS")
         }
       .navigationDestination(isPresented: $shouldShowCreateOrderView) {
           PurchaseScreen()
